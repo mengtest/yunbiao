@@ -1,0 +1,54 @@
+{
+    "frames": {
+        "lock.png": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 112,
+                "h": 157,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 112,
+                "h": 157
+            },
+            "sourceSize": {
+                "w": 112,
+                "h": 157
+            },
+            "rotated": false,
+            "trimed": false
+        },
+        "ui-z-shangshenglizi_texture.png": {
+            "frame": {
+                "x": 114,
+                "y": 0,
+                "w": 275,
+                "h": 379,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 275,
+                "h": 379
+            },
+            "sourceSize": {
+                "w": 275,
+                "h": 379
+            },
+            "rotated": false,
+            "trimed": false
+        }
+    },
+    "meta": {
+        "app": "http:\/\/www.layabox.com",
+        "version": "0.1.0 alpha",
+        "format": "json",
+        "scale": 1,
+        "image": "ui_bottom_effect.png",
+        "prefix": "comp\/ui_bottom_effect\/"
+    }
+}

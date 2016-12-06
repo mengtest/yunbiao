@@ -1,0 +1,222 @@
+{
+    "frames": {
+        "ui-qizipiaodong_01.png": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 278,
+                "h": 244,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 278,
+                "h": 244
+            },
+            "sourceSize": {
+                "w": 279,
+                "h": 244
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_02.png": {
+            "frame": {
+                "x": 280,
+                "y": 0,
+                "w": 281,
+                "h": 242,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 281,
+                "h": 242
+            },
+            "sourceSize": {
+                "w": 281,
+                "h": 242
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_03.png": {
+            "frame": {
+                "x": 563,
+                "y": 0,
+                "w": 282,
+                "h": 240,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 282,
+                "h": 240
+            },
+            "sourceSize": {
+                "w": 282,
+                "h": 240
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_04.png": {
+            "frame": {
+                "x": 563,
+                "y": 242,
+                "w": 283,
+                "h": 238,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 283,
+                "h": 238
+            },
+            "sourceSize": {
+                "w": 283,
+                "h": 238
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_05.png": {
+            "frame": {
+                "x": 0,
+                "y": 246,
+                "w": 282,
+                "h": 237,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 282,
+                "h": 237
+            },
+            "sourceSize": {
+                "w": 282,
+                "h": 237
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_06.png": {
+            "frame": {
+                "x": 284,
+                "y": 244,
+                "w": 276,
+                "h": 239,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 276,
+                "h": 239
+            },
+            "sourceSize": {
+                "w": 276,
+                "h": 239
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_07.png": {
+            "frame": {
+                "x": 562,
+                "y": 482,
+                "w": 273,
+                "h": 241,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 273,
+                "h": 241
+            },
+            "sourceSize": {
+                "w": 273,
+                "h": 241
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_08.png": {
+            "frame": {
+                "x": 0,
+                "y": 725,
+                "w": 270,
+                "h": 244,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 270,
+                "h": 244
+            },
+            "sourceSize": {
+                "w": 270,
+                "h": 244
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_09.png": {
+            "frame": {
+                "x": 272,
+                "y": 485,
+                "w": 270,
+                "h": 245,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 270,
+                "h": 245
+            },
+            "sourceSize": {
+                "w": 270,
+                "h": 245
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "ui-qizipiaodong_10.png": {
+            "frame": {
+                "x": 544,
+                "y": 725,
+                "w": 274,
+                "h": 245,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 274,
+                "h": 245
+            },
+            "sourceSize": {
+                "w": 274,
+                "h": 245
+            },
+            "rotated": false,
+            "trimed": true
+        }
+    },
+    "meta": {
+        "app": "http:\/\/www.layabox.com",
+        "version": "0.1.0 alpha",
+        "format": "json",
+        "scale": 1,
+        "image": "ui_qizi.png",
+        "prefix": ""
+    }
+}
