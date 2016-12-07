@@ -1,0 +1,810 @@
+{
+    "frames": {
+        "zhujiemian_jiaoxia_huang_00000.png": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 191,
+                "h": 133,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 191,
+                "h": 133
+            },
+            "sourceSize": {
+                "w": 191,
+                "h": 133
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_huang_00001.png": {
+            "frame": {
+                "x": 193,
+                "y": 0,
+                "w": 191,
+                "h": 153,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 191,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 191,
+                "h": 153
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_huang_00002.png": {
+            "frame": {
+                "x": 0,
+                "y": 135,
+                "w": 191,
+                "h": 175,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 191,
+                "h": 175
+            },
+            "sourceSize": {
+                "w": 191,
+                "h": 175
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_huang_00003.png": {
+            "frame": {
+                "x": 386,
+                "y": 0,
+                "w": 191,
+                "h": 200,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 191,
+                "h": 200
+            },
+            "sourceSize": {
+                "w": 191,
+                "h": 200
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_huang_00004.png": {
+            "frame": {
+                "x": 193,
+                "y": 155,
+                "w": 191,
+                "h": 180,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 191,
+                "h": 180
+            },
+            "sourceSize": {
+                "w": 191,
+                "h": 180
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_huang_00005.png": {
+            "frame": {
+                "x": 0,
+                "y": 312,
+                "w": 191,
+                "h": 192,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 191,
+                "h": 192
+            },
+            "sourceSize": {
+                "w": 191,
+                "h": 192
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_huang_00006.png": {
+            "frame": {
+                "x": 579,
+                "y": 0,
+                "w": 190,
+                "h": 193,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 190,
+                "h": 193
+            },
+            "sourceSize": {
+                "w": 190,
+                "h": 193
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_huang_00007.png": {
+            "frame": {
+                "x": 579,
+                "y": 195,
+                "w": 190,
+                "h": 203,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 190,
+                "h": 203
+            },
+            "sourceSize": {
+                "w": 190,
+                "h": 203
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00000.png": {
+            "frame": {
+                "x": 386,
+                "y": 202,
+                "w": 166,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 166,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 166,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00001.png": {
+            "frame": {
+                "x": 386,
+                "y": 287,
+                "w": 174,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 174,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 174,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00002.png": {
+            "frame": {
+                "x": 193,
+                "y": 337,
+                "w": 168,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 168,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 168,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00003.png": {
+            "frame": {
+                "x": 363,
+                "y": 372,
+                "w": 167,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 167,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 167,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00004.png": {
+            "frame": {
+                "x": 193,
+                "y": 422,
+                "w": 164,
+                "h": 85,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 164,
+                "h": 85
+            },
+            "sourceSize": {
+                "w": 164,
+                "h": 85
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00005.png": {
+            "frame": {
+                "x": 0,
+                "y": 506,
+                "w": 166,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 166,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 166,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00006.png": {
+            "frame": {
+                "x": 532,
+                "y": 400,
+                "w": 174,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 174,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 174,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00007.png": {
+            "frame": {
+                "x": 359,
+                "y": 457,
+                "w": 168,
+                "h": 82,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 168,
+                "h": 82
+            },
+            "sourceSize": {
+                "w": 168,
+                "h": 82
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00008.png": {
+            "frame": {
+                "x": 168,
+                "y": 509,
+                "w": 167,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 167,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 167,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lan_00009.png": {
+            "frame": {
+                "x": 0,
+                "y": 591,
+                "w": 164,
+                "h": 85,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 164,
+                "h": 85
+            },
+            "sourceSize": {
+                "w": 164,
+                "h": 85
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00000.png": {
+            "frame": {
+                "x": 708,
+                "y": 400,
+                "w": 166,
+                "h": 81,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 166,
+                "h": 81
+            },
+            "sourceSize": {
+                "w": 166,
+                "h": 81
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00001.png": {
+            "frame": {
+                "x": 708,
+                "y": 483,
+                "w": 174,
+                "h": 81,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 174,
+                "h": 81
+            },
+            "sourceSize": {
+                "w": 174,
+                "h": 81
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00002.png": {
+            "frame": {
+                "x": 529,
+                "y": 485,
+                "w": 168,
+                "h": 81,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 168,
+                "h": 81
+            },
+            "sourceSize": {
+                "w": 168,
+                "h": 81
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00003.png": {
+            "frame": {
+                "x": 699,
+                "y": 566,
+                "w": 167,
+                "h": 81,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 167,
+                "h": 81
+            },
+            "sourceSize": {
+                "w": 167,
+                "h": 81
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00004.png": {
+            "frame": {
+                "x": 337,
+                "y": 541,
+                "w": 164,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 164,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 164,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00005.png": {
+            "frame": {
+                "x": 166,
+                "y": 594,
+                "w": 166,
+                "h": 81,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 166,
+                "h": 81
+            },
+            "sourceSize": {
+                "w": 166,
+                "h": 81
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00006.png": {
+            "frame": {
+                "x": 503,
+                "y": 568,
+                "w": 174,
+                "h": 81,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 174,
+                "h": 81
+            },
+            "sourceSize": {
+                "w": 174,
+                "h": 81
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00007.png": {
+            "frame": {
+                "x": 679,
+                "y": 649,
+                "w": 168,
+                "h": 80,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 168,
+                "h": 80
+            },
+            "sourceSize": {
+                "w": 168,
+                "h": 80
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00008.png": {
+            "frame": {
+                "x": 334,
+                "y": 626,
+                "w": 167,
+                "h": 81,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 167,
+                "h": 81
+            },
+            "sourceSize": {
+                "w": 167,
+                "h": 81
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_lv_00009.png": {
+            "frame": {
+                "x": 166,
+                "y": 677,
+                "w": 164,
+                "h": 83,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 164,
+                "h": 83
+            },
+            "sourceSize": {
+                "w": 164,
+                "h": 83
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00000.png": {
+            "frame": {
+                "x": 0,
+                "y": 678,
+                "w": 144,
+                "h": 68,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 144,
+                "h": 68
+            },
+            "sourceSize": {
+                "w": 144,
+                "h": 68
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00001.png": {
+            "frame": {
+                "x": 0,
+                "y": 748,
+                "w": 145,
+                "h": 69,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 145,
+                "h": 69
+            },
+            "sourceSize": {
+                "w": 145,
+                "h": 69
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00002.png": {
+            "frame": {
+                "x": 503,
+                "y": 651,
+                "w": 147,
+                "h": 68,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 147,
+                "h": 68
+            },
+            "sourceSize": {
+                "w": 147,
+                "h": 68
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00003.png": {
+            "frame": {
+                "x": 332,
+                "y": 709,
+                "w": 147,
+                "h": 68,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 147,
+                "h": 68
+            },
+            "sourceSize": {
+                "w": 147,
+                "h": 68
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00004.png": {
+            "frame": {
+                "x": 147,
+                "y": 762,
+                "w": 147,
+                "h": 67,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 147,
+                "h": 67
+            },
+            "sourceSize": {
+                "w": 147,
+                "h": 67
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00005.png": {
+            "frame": {
+                "x": 481,
+                "y": 721,
+                "w": 146,
+                "h": 65,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 146,
+                "h": 65
+            },
+            "sourceSize": {
+                "w": 146,
+                "h": 65
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00006.png": {
+            "frame": {
+                "x": 296,
+                "y": 779,
+                "w": 146,
+                "h": 65,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 146,
+                "h": 65
+            },
+            "sourceSize": {
+                "w": 146,
+                "h": 65
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00007.png": {
+            "frame": {
+                "x": 0,
+                "y": 819,
+                "w": 145,
+                "h": 67,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 145,
+                "h": 67
+            },
+            "sourceSize": {
+                "w": 145,
+                "h": 67
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00008.png": {
+            "frame": {
+                "x": 147,
+                "y": 831,
+                "w": 145,
+                "h": 67,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 145,
+                "h": 67
+            },
+            "sourceSize": {
+                "w": 145,
+                "h": 67
+            },
+            "rotated": false,
+            "trimed": true
+        },
+        "zhujiemian_jiaoxia_zi_00009.png": {
+            "frame": {
+                "x": 629,
+                "y": 731,
+                "w": 145,
+                "h": 68,
+                "idx": 0
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 145,
+                "h": 68
+            },
+            "sourceSize": {
+                "w": 145,
+                "h": 68
+            },
+            "rotated": false,
+            "trimed": true
+        }
+    },
+    "meta": {
+        "app": "http:\/\/www.layabox.com",
+        "version": "0.1.0 alpha",
+        "format": "json",
+        "scale": 1,
+        "image": "dizuo.png",
+        "prefix": ""
+    }
+}

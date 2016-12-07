@@ -1,11 +1,11 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":46,
-    "selecteID":65,
-    "props":{"width":1136,"var":"niaoa3","sceneColor":"#000000","name":"niao3","height":640},
+    "selectedBox":69,
+    "selecteID":70,
+    "props":{"width":1136,"sceneColor":"#000000","height":640},
     "nodeParent":-1,
-    "label":"View(niaoa3)",
+    "label":"View",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -31,7 +31,7 @@
             "frames":[
                 {
                     "type":1,
-                    "props":{"y":283,"x":334},
+                    "props":{"y":0,"x":0,"width":1136,"skin":"res/back/back.jpg","height":640},
                     "frame":0,
                     "__InPool":false
                 }],
@@ -52,7 +52,7 @@
             "frames":[
                 {
                     "type":1,
-                    "props":{"y":79,"x":245},
+                    "props":{"y":70,"x":234},
                     "frame":0,
                     "__InPool":false
                 }],
@@ -70,7 +70,7 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":120,"x":709},
+                            "props":{"y":34,"x":81,"var":"niaoa1","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao1","interval":30,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -90,7 +90,7 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":120,"x":709},
+                            "props":{"y":45,"x":100,"var":"niaoa2","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao3","interval":30,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -110,14 +110,13 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":120,"x":709},
+                            "props":{"y":23,"x":105,"var":"niaoa","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao1","interval":30,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
                     "compId":12,
                     "child":[
-                        ],
-                    "$HIDDEN":true
+                        ]
                 },
                 {
                     "x":30,
@@ -131,7 +130,7 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":120,"x":709},
+                            "props":{"y":149,"x":45,"var":"niaoa4","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao4","interval":30,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -151,7 +150,7 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":120,"x":709},
+                            "props":{"y":187,"x":58,"var":"niaoa5","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao5","interval":60,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -171,7 +170,7 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":120,"x":709},
+                            "props":{"y":138,"x":93,"var":"niaoa6","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao6","interval":60,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -191,7 +190,7 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":87,"x":195},
+                            "props":{"y":-40,"x":-115,"var":"flag1","source":"comp/ui_qizi.json","scaleY":0.5,"scaleX":0.5,"name":"flag1","interval":100,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -211,7 +210,7 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":66,"x":956},
+                            "props":{"y":-35,"x":769,"var":"flag2","source":"comp/ui_qizi.json","scaleY":0.5,"scaleX":0.5,"rotation":90,"name":"flag2","interval":80,"autoPlay":true},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -233,7 +232,7 @@
             "frames":[
                 {
                     "type":1,
-                    "props":{"y":368,"x":221},
+                    "props":{"y":329,"x":209,"width":38,"height":36},
                     "frame":0,
                     "__InPool":false
                 }],
@@ -245,33 +244,31 @@
                     "props":{"y":85,"x":-40,"skin":"comp/img_bottom.png"},
                     "nodeParent":46,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":594,"x":182,"skin":"comp/img_bottom.png"},
+                            "props":{"y":85,"x":-40,"skin":"comp/img_bottom.png"},
                             "frame":0,
                             "__InPool":false
                         }],
                     "compId":32,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"},
                             "nodeParent":32,
                             "label":"Image(lock)",
-                            "isOpen":false,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":393,"x":236,"skin":"comp/ui_bottom_effect/lock.png"},
+                                    "props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -286,40 +283,19 @@
                     "props":{"y":0,"x":94,"skin":"comp/img_bottom.png"},
                     "nodeParent":46,
                     "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":594,"x":182,"skin":"comp/img_bottom.png"},
+                            "props":{"y":0,"x":94,"skin":"comp/img_bottom.png"},
                             "frame":0,
                             "__InPool":false
                         }],
                     "compId":53,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"},
-                            "nodeParent":53,
-                            "label":"Image(lock)",
-                            "isOpen":false,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "frames":[
-                                {
-                                    "type":1,
-                                    "props":{"y":393,"x":236,"skin":"comp/ui_bottom_effect/lock.png"},
-                                    "frame":0,
-                                    "__InPool":false
-                                }],
-                            "compId":54,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
                     "x":30,
@@ -327,40 +303,19 @@
                     "props":{"y":5,"x":494,"skin":"comp/img_bottom.png"},
                     "nodeParent":46,
                     "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":594,"x":182,"skin":"comp/img_bottom.png"},
+                            "props":{"y":5,"x":494,"skin":"comp/img_bottom.png"},
                             "frame":0,
                             "__InPool":false
                         }],
                     "compId":56,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"},
-                            "nodeParent":56,
-                            "label":"Image(lock)",
-                            "isOpen":false,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "frames":[
-                                {
-                                    "type":1,
-                                    "props":{"y":393,"x":236,"skin":"comp/ui_bottom_effect/lock.png"},
-                                    "frame":0,
-                                    "__InPool":false
-                                }],
-                            "compId":57,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
                     "x":30,
@@ -368,33 +323,31 @@
                     "props":{"y":104,"x":598,"skin":"comp/img_bottom.png"},
                     "nodeParent":46,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":594,"x":182,"skin":"comp/img_bottom.png"},
+                            "props":{"y":104,"x":598,"skin":"comp/img_bottom.png"},
                             "frame":0,
                             "__InPool":false
                         }],
                     "compId":59,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"},
                             "nodeParent":59,
                             "label":"Image(lock)",
-                            "isOpen":false,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":393,"x":236,"skin":"comp/ui_bottom_effect/lock.png"},
+                                    "props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -406,9 +359,9 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":94,"x":189,"var":"role_bottom_1","skin":"comp/img_bottom.png"},
+                    "props":{"y":81,"x":180,"skin":"comp/img_bottom.png"},
                     "nodeParent":46,
-                    "label":"Image(role_bottom_1)",
+                    "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -416,93 +369,70 @@
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":594,"x":182,"skin":"comp/img_bottom.png"},
+                            "props":{"y":81,"x":180,"skin":"comp/img_bottom.png"},
                             "frame":0,
                             "__InPool":false
                         }],
-                    "compId":62,
+                    "compId":69,
                     "child":[
                         {
                             "x":45,
                             "type":"Animation",
-                            "props":{"y":-101,"x":33,"source":"comp/action/huawuque/huawuque.json","name":"bootom_lizi","autoPlay":true},
-                            "nodeParent":62,
-                            "label":"Animation(bootom_lizi)",
+                            "props":{"y":-73,"x":13,"var":"jiaoxia1","autoPlay":true},
+                            "nodeParent":69,
+                            "label":"Animation(jiaoxia1)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":-25,"x":119},
+                                    "props":{"y":-69,"x":19,"var":"jiaoxia1","autoPlay":true},
                                     "frame":0,
                                     "__InPool":false
                                 }],
-                            "compId":64,
+                            "compId":70,
                             "child":[
-                                ],
-                            "$HIDDEN":true
+                                ]
                         }]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":93,"x":376,"var":"role_bottom_2","skin":"comp/img_bottom.png"},
+                    "props":{"y":90,"x":396,"skin":"comp/img_bottom.png"},
                     "nodeParent":46,
-                    "label":"Image(role_bottom_2)",
-                    "isOpen":true,
+                    "label":"Image",
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":594,"x":182,"skin":"comp/img_bottom.png"},
+                            "props":{"y":90,"x":396,"skin":"comp/img_bottom.png"},
                             "frame":0,
                             "__InPool":false
                         }],
-                    "compId":65,
+                    "compId":72,
                     "child":[
                         {
-                            "x":45,
                             "type":"Animation",
-                            "props":{"y":-62,"x":13,"var":"role_bottom_2_ring"},
-                            "nodeParent":65,
-                            "label":"Animation(role_bottom_2_ring)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "props":{"y":-69,"x":19,"var":"jiaoxia2","autoPlay":true},
+                            "nodeParent":72,
+                            "label":"Animation(jiaoxia2)",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
+                            "hasChild":false,
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":99,"x":289},
+                                    "props":{"y":-69,"x":19,"var":"jiaoxia2","autoPlay":true},
                                     "frame":0,
                                     "__InPool":false
                                 }],
-                            "compId":67,
+                            "compId":73,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Animation",
-                                    "props":{"y":-23,"x":-1,"var":"role_bottom_2_man"},
-                                    "nodeParent":67,
-                                    "label":"Animation(role_bottom_2_man)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "frames":[
-                                        {
-                                            "type":1,
-                                            "props":{"y":-53,"x":42},
-                                            "frame":0,
-                                            "__InPool":false
-                                        }],
-                                    "compId":68,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":true
+                                ]
                         }]
                 }]
         },
@@ -519,7 +449,7 @@
             "frames":[
                 {
                     "type":1,
-                    "props":{"y":586,"x":39},
+                    "props":{"y":586,"x":39,"var":"menu"},
                     "frame":0,
                     "__InPool":false
                 }],
@@ -530,14 +460,13 @@
                     "props":{"y":-15,"x":-331,"skin":"comp/dz.png"},
                     "nodeParent":47,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":601,"x":188,"skin":"comp/dz.png"},
+                            "props":{"y":-15,"x":-331,"skin":"comp/dz.png"},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -554,7 +483,7 @@
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":573,"x":438,"skin":"comp/button.png","label":"label"},
+                                    "props":{"y":-62,"x":10,"width":89,"var":"btn_home","skin":"comp/btn_home.png","height":93},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -568,14 +497,13 @@
                     "props":{"y":-15,"x":140,"skin":"comp/dz.png"},
                     "nodeParent":47,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":587,"x":340,"skin":"comp/dz.png"},
+                            "props":{"y":-15,"x":140,"skin":"comp/dz.png"},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -592,7 +520,7 @@
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":578,"x":250,"skin":"comp/button.png","label":"label"},
+                                    "props":{"y":-54,"x":13,"width":89,"var":"btn_role","skin":"comp/btn_role.png","height":93},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -606,14 +534,13 @@
                     "props":{"y":-15,"x":259,"skin":"comp/dz.png"},
                     "nodeParent":47,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":575,"x":440,"skin":"comp/dz.png"},
+                            "props":{"y":-15,"x":259,"skin":"comp/dz.png"},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -630,7 +557,7 @@
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":578,"x":250,"skin":"comp/button.png","label":"label"},
+                                    "props":{"y":-49,"x":19,"width":89,"var":"btn_equip","skin":"comp/btn_equip.png","height":93},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -644,14 +571,13 @@
                     "props":{"y":-15,"x":385,"skin":"comp/dz.png"},
                     "nodeParent":47,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":589,"x":572,"skin":"comp/dz.png"},
+                            "props":{"y":-15,"x":385,"skin":"comp/dz.png"},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -668,7 +594,7 @@
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":578,"x":250,"skin":"comp/button.png","label":"label"},
+                                    "props":{"y":-54,"x":20,"width":89,"var":"btn_biaolu","skin":"comp/btn_biaolu.png","height":93},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -682,14 +608,13 @@
                     "props":{"y":-15,"x":520,"skin":"comp/dz.png"},
                     "nodeParent":47,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":586,"x":687,"skin":"comp/dz.png"},
+                            "props":{"y":-15,"x":520,"skin":"comp/dz.png"},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -706,7 +631,7 @@
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":578,"x":250,"skin":"comp/button.png","label":"label"},
+                                    "props":{"y":-46,"x":17,"width":89,"var":"btn_achievement","skin":"comp/btn_achievement.png","height":93},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -720,14 +645,13 @@
                     "props":{"y":-15,"x":646,"skin":"comp/dz.png"},
                     "nodeParent":47,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":574,"x":820,"skin":"comp/dz.png"},
+                            "props":{"y":-15,"x":646,"skin":"comp/dz.png"},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -744,7 +668,7 @@
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":578,"x":250,"skin":"comp/button.png","label":"label"},
+                                    "props":{"y":-49,"x":15,"width":89,"var":"btn_activity","skin":"comp/btn_activity.png","height":93},
                                     "frame":0,
                                     "__InPool":false
                                 }],
@@ -758,14 +682,13 @@
                     "props":{"y":-15,"x":776,"skin":"comp/dz.png"},
                     "nodeParent":47,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "frames":[
                         {
                             "type":1,
-                            "props":{"y":584,"x":940,"skin":"comp/dz.png"},
+                            "props":{"y":-15,"x":776,"skin":"comp/dz.png"},
                             "frame":0,
                             "__InPool":false
                         }],
@@ -782,7 +705,7 @@
                             "frames":[
                                 {
                                     "type":1,
-                                    "props":{"y":578,"x":250,"skin":"comp/button.png","label":"label"},
+                                    "props":{"y":-47,"x":13,"width":89,"var":"btn_shop","skin":"comp/btn_shop.png","height":93},
                                     "frame":0,
                                     "__InPool":false
                                 }],

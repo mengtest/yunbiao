@@ -1,7 +1,7 @@
 var window = window || global;
 var document = document || (window.document = {});
 /***********************************/
-/*http://www.layabox.com 2016/11/25*/
+/*http://www.layabox.com 2016/11/11*/
 /***********************************/
 var Laya=window.Laya=(function(window,document){
 	var Laya={
@@ -23,15 +23,10 @@ var Laya=window.Laya=(function(window,document){
 		__extend:function(d,b){
 			for (var p in b){
 				if (!b.hasOwnProperty(p)) continue;
-				var gs=Object.getOwnPropertyDescriptor(b, p);
-				var g = gs.get, s = gs.set; 
+				var g = Object.getOwnPropertyDescriptor(b, p).get, s = Object.getOwnPropertyDescriptor(b, p).set; 
 				if ( g || s ) {
-					if ( g && s)
-						Object.defineProperty(d,p,gs);
-					else{
-						g && Object.defineProperty(d, p, g);
-						s && Object.defineProperty(d, p, s);
-					}
+					g && Object.defineProperty(d, p, g);
+					s && Object.defineProperty(d, p, s);
 				}
 				else d[p] = b[p];
 			}
@@ -727,8 +722,9 @@ var Laya=window.Laya=(function(window,document){
 		var __proto=Ske_ani.prototype;
 		__proto.parseComplete=function(fac){
 			this.mArmature=this.mFactory.buildArmature(0);
+			this.mArmature.pivot(this.parent_comp.x,this.parent_comp.y);
 			this.mArmature.x=this.parent_comp.width/2;
-			this.mArmature.y=20;
+			this.mArmature.y=this.parent_comp.height/2;
 			this.mArmature.on("stopped",this,this.completeHandler);
 			this.mArmature.play(this.actionName);
 			this.parent_comp.addChild(this.mArmature);
@@ -23471,6 +23467,55 @@ var Laya=window.Laya=(function(window,document){
 
 
 	/**
+	*脚下动画
+	*/
+	//class view.JiaoxiaAni extends laya.display.Sprite
+	var JiaoxiaAni=(function(_super){
+		function JiaoxiaAni(){
+			this.body=null;
+			JiaoxiaAni.__super.call(this);
+			this.init();
+		}
+
+		__class(JiaoxiaAni,'view.JiaoxiaAni',_super);
+		var __proto=JiaoxiaAni.prototype;
+		__proto.init=function(){
+			var aniFrames;
+			aniFrames=[];
+			for(var i=0;i < 7;++i){
+				aniFrames.push("res/ui/main_ani/dizuo/zhujiemian_jiaoxia_huang_0000"+i+".png");
+			}
+			Laya.Animation.createFrames(aniFrames,"yellow");
+			aniFrames=[];
+			for(var i=0;i <=9;++i){
+				aniFrames.push("res/ui/main_ani/dizuo/zhujiemian_jiaoxia_lan_0000"+i+".png");
+			}
+			Laya.Animation.createFrames(aniFrames,"blue");
+			aniFrames=[];
+			for(var i=0;i < 9;++i){
+				aniFrames.push("res/ui/main_ani/dizuo/zhujiemian_jiaoxia_lv_0000"+i+".png");
+			}
+			Laya.Animation.createFrames(aniFrames,"green");
+			aniFrames=[];
+			for(var i=0;i < 9;++i){
+				aniFrames.push("res/ui/main_ani/dizuo/zhujiemian_jiaoxia_zi_0000"+i+".png");
+			}
+			Laya.Animation.createFrames(aniFrames,"purple");
+			this.body=new Laya.Animation();
+		}
+
+		//this.addChild(this.body);
+		__proto.playAction=function(action){
+			this.body.play(0,true,action);
+			var bound=this.body.getBounds();
+			this.body.pos(-bound.width / 2,-bound.height / 2);
+		}
+
+		return JiaoxiaAni;
+	})(Sprite)
+
+
+	/**
 	*骨骼动画由Templet,AnimationPlayer,Skeleton三部分组成
 	*/
 	//class laya.ani.bone.Skeleton extends laya.display.Sprite
@@ -34196,107 +34241,6 @@ var Laya=window.Laya=(function(window,document){
 
 
 	/**
-	*使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
-	*<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
-	*
-	*@example 以下示例代码，创建了一个 <code>VSlider</code> 实例。
-	*<listing version="3.0">
-	*package
-	*{
-		*import laya.ui.HSlider;
-		*import laya.ui.VSlider;
-		*import laya.utils.Handler;
-		*public class VSlider_Example
-		*{
-			*private var vSlider:VSlider;
-			*public function VSlider_Example()
-			*{
-				*Laya.init(640,800);//设置游戏画布宽高。
-				*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-				*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
-				*}
-			*private function onLoadComplete():void
-			*{
-				*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-				*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-				*vSlider.min=0;//设置 vSlider 最低位置值。
-				*vSlider.max=10;//设置 vSlider 最高位置值。
-				*vSlider.value=2;//设置 vSlider 当前位置值。
-				*vSlider.tick=1;//设置 vSlider 刻度值。
-				*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-				*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-				*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
-				*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-				*}
-			*private function onChange(value:Number):void
-			*{
-				*trace("滑块的位置： value="+value);
-				*}
-			*}
-		*}
-	*</listing>
-	*<listing version="3.0">
-	*Laya.init(640,800);//设置游戏画布宽高
-	*Laya.stage.bgColor="#efefef";//设置画布的背景颜色
-	*var vSlider;
-	*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
-	*function onLoadComplete(){
-		*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-		*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-		*vSlider.min=0;//设置 vSlider 最低位置值。
-		*vSlider.max=10;//设置 vSlider 最高位置值。
-		*vSlider.value=2;//设置 vSlider 当前位置值。
-		*vSlider.tick=1;//设置 vSlider 刻度值。
-		*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-		*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-		*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
-		*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
-		*}
-	*function onChange(value){
-		*console.log("滑块的位置： value="+value);
-		*}
-	*</listing>
-	*<listing version="3.0">
-	*import HSlider=laya.ui.HSlider;
-	*import VSlider=laya.ui.VSlider;
-	*import Handler=laya.utils.Handler;
-	*class VSlider_Example {
-		*private vSlider:VSlider;
-		*constructor(){
-			*Laya.init(640,800);//设置游戏画布宽高。
-			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
-			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
-			*}
-		*private onLoadComplete():void {
-			*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
-			*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
-			*this.vSlider.min=0;//设置 vSlider 最低位置值。
-			*this.vSlider.max=10;//设置 vSlider 最高位置值。
-			*this.vSlider.value=2;//设置 vSlider 当前位置值。
-			*this.vSlider.tick=1;//设置 vSlider 刻度值。
-			*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
-			*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
-			*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
-			*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
-			*}
-		*private onChange(value:number):void {
-			*console.log("滑块的位置： value="+value);
-			*}
-		*}
-	*</listing>
-	*@see laya.ui.Slider
-	*/
-	//class laya.ui.VSlider extends laya.ui.Slider
-	var VSlider=(function(_super){
-		function VSlider(){VSlider.__super.call(this);;
-		};
-
-		__class(VSlider,'laya.ui.VSlider',_super);
-		return VSlider;
-	})(Slider)
-
-
-	/**
 	*<code>TextInput</code> 类用于创建显示对象以显示和输入文本。
 	*
 	*@example 以下示例代码，创建了一个 <code>TextInput</code> 实例。
@@ -34609,6 +34553,107 @@ var Laya=window.Laya=(function(window,document){
 
 		return TextInput;
 	})(Label)
+
+
+	/**
+	*使用 <code>VSlider</code> 控件，用户可以通过在滑块轨道的终点之间移动滑块来选择值。
+	*<p> <code>VSlider</code> 控件采用垂直方向。滑块轨道从下往上扩展，而标签位于轨道的左右两侧。</p>
+	*
+	*@example 以下示例代码，创建了一个 <code>VSlider</code> 实例。
+	*<listing version="3.0">
+	*package
+	*{
+		*import laya.ui.HSlider;
+		*import laya.ui.VSlider;
+		*import laya.utils.Handler;
+		*public class VSlider_Example
+		*{
+			*private var vSlider:VSlider;
+			*public function VSlider_Example()
+			*{
+				*Laya.init(640,800);//设置游戏画布宽高。
+				*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+				*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,onLoadComplete));//加载资源。
+				*}
+			*private function onLoadComplete():void
+			*{
+				*vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+				*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+				*vSlider.min=0;//设置 vSlider 最低位置值。
+				*vSlider.max=10;//设置 vSlider 最高位置值。
+				*vSlider.value=2;//设置 vSlider 当前位置值。
+				*vSlider.tick=1;//设置 vSlider 刻度值。
+				*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+				*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+				*vSlider.changeHandler=new Handler(this,onChange);//设置 vSlider 位置变化处理器。
+				*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+				*}
+			*private function onChange(value:Number):void
+			*{
+				*trace("滑块的位置： value="+value);
+				*}
+			*}
+		*}
+	*</listing>
+	*<listing version="3.0">
+	*Laya.init(640,800);//设置游戏画布宽高
+	*Laya.stage.bgColor="#efefef";//设置画布的背景颜色
+	*var vSlider;
+	*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],laya.utils.Handler.create(this,onLoadComplete));//加载资源。
+	*function onLoadComplete(){
+		*vSlider=new laya.ui.VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+		*vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+		*vSlider.min=0;//设置 vSlider 最低位置值。
+		*vSlider.max=10;//设置 vSlider 最高位置值。
+		*vSlider.value=2;//设置 vSlider 当前位置值。
+		*vSlider.tick=1;//设置 vSlider 刻度值。
+		*vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+		*vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+		*vSlider.changeHandler=new laya.utils.Handler(this,onChange);//设置 vSlider 位置变化处理器。
+		*Laya.stage.addChild(vSlider);//把 vSlider 添加到显示列表。
+		*}
+	*function onChange(value){
+		*console.log("滑块的位置： value="+value);
+		*}
+	*</listing>
+	*<listing version="3.0">
+	*import HSlider=laya.ui.HSlider;
+	*import VSlider=laya.ui.VSlider;
+	*import Handler=laya.utils.Handler;
+	*class VSlider_Example {
+		*private vSlider:VSlider;
+		*constructor(){
+			*Laya.init(640,800);//设置游戏画布宽高。
+			*Laya.stage.bgColor="#efefef";//设置画布的背景颜色。
+			*Laya.loader.load(["resource/ui/vslider.png","resource/ui/vslider$bar.png"],Handler.create(this,this.onLoadComplete));//加载资源。
+			*}
+		*private onLoadComplete():void {
+			*this.vSlider=new VSlider();//创建一个 VSlider 类的实例对象 vSlider 。
+			*this.vSlider.skin="resource/ui/vslider.png";//设置 vSlider 的皮肤。
+			*this.vSlider.min=0;//设置 vSlider 最低位置值。
+			*this.vSlider.max=10;//设置 vSlider 最高位置值。
+			*this.vSlider.value=2;//设置 vSlider 当前位置值。
+			*this.vSlider.tick=1;//设置 vSlider 刻度值。
+			*this.vSlider.x=100;//设置 vSlider 对象的属性 x 的值，用于控制 vSlider 对象的显示位置。
+			*this.vSlider.y=100;//设置 vSlider 对象的属性 y 的值，用于控制 vSlider 对象的显示位置。
+			*this.vSlider.changeHandler=new Handler(this,this.onChange);//设置 vSlider 位置变化处理器。
+			*Laya.stage.addChild(this.vSlider);//把 vSlider 添加到显示列表。
+			*}
+		*private onChange(value:number):void {
+			*console.log("滑块的位置： value="+value);
+			*}
+		*}
+	*</listing>
+	*@see laya.ui.Slider
+	*/
+	//class laya.ui.VSlider extends laya.ui.Slider
+	var VSlider=(function(_super){
+		function VSlider(){VSlider.__super.call(this);;
+		};
+
+		__class(VSlider,'laya.ui.VSlider',_super);
+		return VSlider;
+	})(Slider)
 
 
 	/**
@@ -35058,7 +35103,8 @@ var Laya=window.Laya=(function(window,document){
 			this.niaoa6=null;
 			this.flag1=null;
 			this.flag2=null;
-			this.role_bottom_1=null;
+			this.jiaoxia1=null;
+			this.jiaoxia2=null;
 			this.menu=null;
 			this.btn_home=null;
 			this.btn_role=null;
@@ -35078,7 +35124,7 @@ var Laya=window.Laya=(function(window,document){
 		}
 
 		__static(mainUI,
-		['uiView',function(){return this.uiView={"type":"View","props":{"width":1136,"name":"niao3","height":640},"child":[{"type":"Image","props":{"y":0,"x":0,"width":1136,"skin":"res/back/back.jpg","height":640}},{"type":"Sprite","props":{"y":70,"x":234},"child":[{"type":"Animation","props":{"y":34,"x":81,"var":"niaoa1","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao1","interval":30,"autoPlay":true},"compId":9},{"type":"Animation","props":{"y":45,"x":100,"var":"niaoa2","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao3","interval":30,"autoPlay":true},"compId":11},{"type":"Animation","props":{"y":23,"x":105,"var":"niaoa","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao1","interval":30,"autoPlay":true},"compId":12},{"type":"Animation","props":{"y":149,"x":45,"var":"niaoa4","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao4","interval":30,"autoPlay":true},"compId":16},{"type":"Animation","props":{"y":187,"x":58,"var":"niaoa5","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao5","interval":60,"autoPlay":true},"compId":17},{"type":"Animation","props":{"y":138,"x":93,"var":"niaoa6","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao6","interval":60,"autoPlay":true},"compId":18},{"type":"Animation","props":{"y":-40,"x":-115,"var":"flag1","source":"comp/ui_qizi.json","scaleY":0.5,"scaleX":0.5,"name":"flag1","interval":100,"autoPlay":true},"compId":19},{"type":"Animation","props":{"y":-35,"x":769,"var":"flag2","source":"comp/ui_qizi.json","scaleY":0.5,"scaleX":0.5,"rotation":90,"name":"flag2","interval":80,"autoPlay":true},"compId":20}]},{"type":"Sprite","props":{"y":329,"x":209,"width":38,"height":36},"child":[{"type":"Image","props":{"y":85,"x":-40,"skin":"comp/img_bottom.png"},"child":[{"type":"Image","props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"}}]},{"type":"Image","props":{"y":0,"x":94,"skin":"comp/img_bottom.png"},"child":[{"type":"Image","props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"}}]},{"type":"Image","props":{"y":5,"x":494,"skin":"comp/img_bottom.png"},"child":[{"type":"Image","props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"}}]},{"type":"Image","props":{"y":104,"x":598,"skin":"comp/img_bottom.png"},"child":[{"type":"Image","props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"}}]},{"type":"Image","props":{"y":94,"x":189,"var":"role_bottom_1","skin":"comp/img_bottom.png"},"child":[{"type":"Animation","props":{"y":-101,"x":33,"source":"comp/action/huawuque/huawuque.json","name":"bootom_lizi","autoPlay":true}}]},{"type":"Image","props":{"y":93,"x":376,"skin":"comp/img_bottom.png"},"child":[{"type":"Image","props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"}}]}]},{"type":"Sprite","props":{"y":586,"x":39,"var":"menu"},"child":[{"type":"Image","props":{"y":-15,"x":-331,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-62,"x":10,"width":89,"var":"btn_home","skin":"comp/btn_home.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":140,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-54,"x":13,"width":89,"var":"btn_role","skin":"comp/btn_role.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":259,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-49,"x":19,"width":89,"var":"btn_equip","skin":"comp/btn_equip.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":385,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-54,"x":20,"width":89,"var":"btn_biaolu","skin":"comp/btn_biaolu.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":520,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-46,"x":17,"width":89,"var":"btn_achievement","skin":"comp/btn_achievement.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":646,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-49,"x":15,"width":89,"var":"btn_activity","skin":"comp/btn_activity.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":776,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-47,"x":13,"width":89,"var":"btn_shop","skin":"comp/btn_shop.png","height":93}}]}]}],"animations":[{"nodes":[{"target":12,"keyframes":{"y":[{"value":93,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":0},{"value":84,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":60},{"value":71,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":120},{"value":43,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":180},{"value":-6,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":220},{"value":-48,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":240}],"x":[{"value":339,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":0},{"value":406,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":60},{"value":536,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":120},{"value":635,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":180},{"value":827,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":220},{"value":927,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":12,"key":"interval","index":0}]}},{"target":9,"keyframes":{"y":[{"value":104,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":0},{"value":95,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":60},{"value":82,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":120},{"value":54,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":180},{"value":5,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":220},{"value":-37,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":240}],"x":[{"value":315,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":382,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":60},{"value":512,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":120},{"value":611,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":180},{"value":803,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":220},{"value":903,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":9,"key":"interval","index":0}]}},{"target":11,"keyframes":{"y":[{"value":115,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":0},{"value":106,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":60},{"value":93,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":120},{"value":65,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":180},{"value":16,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":220},{"value":-26,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":240}],"x":[{"value":334,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":0},{"value":401,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":60},{"value":531,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":120},{"value":630,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":180},{"value":822,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":220},{"value":922,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":11,"key":"interval","index":0}]}}],"name":"ani1","id":1,"frameRate":24,"action":2},{"nodes":[{"target":16,"keyframes":{"y":[{"value":218,"tweenMethod":"linearNone","tween":true,"target":16,"key":"y","index":0},{"value":131,"tweenMethod":"linearNone","tween":true,"target":16,"key":"y","index":160},{"value":96,"tweenMethod":"linearNone","tween":true,"target":16,"key":"y","index":240}],"x":[{"value":379,"tweenMethod":"linearNone","tween":true,"target":16,"key":"x","index":0},{"value":599,"tweenMethod":"linearNone","tween":true,"target":16,"key":"x","index":160},{"value":853,"tweenMethod":"linearNone","tween":true,"target":16,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":16,"key":"interval","index":0},{"value":60,"tweenMethod":"linearNone","tween":true,"target":16,"key":"interval","index":240}]}},{"target":17,"keyframes":{"y":[{"value":256,"tweenMethod":"linearNone","tween":true,"target":17,"key":"y","index":0},{"value":169,"tweenMethod":"linearNone","tween":true,"target":17,"key":"y","index":160},{"value":134,"tweenMethod":"linearNone","tween":true,"target":17,"key":"y","index":240}],"x":[{"value":392,"tweenMethod":"linearNone","tween":true,"target":17,"key":"x","index":0},{"value":612,"tweenMethod":"linearNone","tween":true,"target":17,"key":"x","index":160},{"value":866,"tweenMethod":"linearNone","tween":true,"target":17,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":17,"key":"interval","index":0},{"value":60,"tweenMethod":"linearNone","tween":true,"target":17,"key":"interval","index":240}]}},{"target":18,"keyframes":{"y":[{"value":207,"tweenMethod":"linearNone","tween":true,"target":18,"key":"y","index":0},{"value":120,"tweenMethod":"linearNone","tween":true,"target":18,"key":"y","index":160},{"value":85,"tweenMethod":"linearNone","tween":true,"target":18,"key":"y","index":240}],"x":[{"value":427,"tweenMethod":"linearNone","tween":true,"target":18,"key":"x","index":0},{"value":647,"tweenMethod":"linearNone","tween":true,"target":18,"key":"x","index":160},{"value":901,"tweenMethod":"linearNone","tween":true,"target":18,"key":"x","index":240}]}},{"target":20,"keyframes":{"scaleY":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":20,"key":"scaleY","index":0}],"scaleX":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":20,"key":"scaleX","index":0}],"interval":[{"value":100,"tweenMethod":"linearNone","tween":true,"target":20,"key":"interval","index":0}]}},{"target":19,"keyframes":{"scaleY":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":19,"key":"scaleY","index":0}],"scaleX":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":19,"key":"scaleX","index":0}]}},{"target":9,"keyframes":{"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":9,"key":"interval","index":0}]}},{"target":11,"keyframes":{"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":11,"key":"interval","index":0}]}}],"name":"ani2","id":2,"frameRate":24,"action":2}]};}
+		['uiView',function(){return this.uiView={"type":"View","props":{"width":1136,"height":640},"child":[{"type":"Image","props":{"y":0,"x":0,"width":1136,"skin":"res/back/back.jpg","height":640}},{"type":"Sprite","props":{"y":70,"x":234},"child":[{"type":"Animation","props":{"y":34,"x":81,"var":"niaoa1","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao1","interval":30,"autoPlay":true},"compId":9},{"type":"Animation","props":{"y":45,"x":100,"var":"niaoa2","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao3","interval":30,"autoPlay":true},"compId":11},{"type":"Animation","props":{"y":23,"x":105,"var":"niaoa","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao1","interval":30,"autoPlay":true},"compId":12},{"type":"Animation","props":{"y":149,"x":45,"var":"niaoa4","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao4","interval":30,"autoPlay":true},"compId":16},{"type":"Animation","props":{"y":187,"x":58,"var":"niaoa5","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao5","interval":60,"autoPlay":true},"compId":17},{"type":"Animation","props":{"y":138,"x":93,"var":"niaoa6","source":"comp/dan1.json","scaleY":0.5,"scaleX":0.5,"name":"niao6","interval":60,"autoPlay":true},"compId":18},{"type":"Animation","props":{"y":-40,"x":-115,"var":"flag1","source":"comp/ui_qizi.json","scaleY":0.5,"scaleX":0.5,"name":"flag1","interval":100,"autoPlay":true},"compId":19},{"type":"Animation","props":{"y":-35,"x":769,"var":"flag2","source":"comp/ui_qizi.json","scaleY":0.5,"scaleX":0.5,"rotation":90,"name":"flag2","interval":80,"autoPlay":true},"compId":20}]},{"type":"Sprite","props":{"y":329,"x":209,"width":38,"height":36},"child":[{"type":"Image","props":{"y":85,"x":-40,"skin":"comp/img_bottom.png"},"child":[{"type":"Image","props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"}}]},{"type":"Image","props":{"y":0,"x":94,"skin":"comp/img_bottom.png"}},{"type":"Image","props":{"y":5,"x":494,"skin":"comp/img_bottom.png"}},{"type":"Image","props":{"y":104,"x":598,"skin":"comp/img_bottom.png"},"child":[{"type":"Image","props":{"y":-144,"x":14,"skin":"comp/ui_bottom_effect/lock.png","name":"lock"}}]},{"type":"Image","props":{"y":81,"x":180,"skin":"comp/img_bottom.png"},"child":[{"type":"Animation","props":{"y":-73,"x":13,"var":"jiaoxia1","autoPlay":true}}]},{"type":"Image","props":{"y":90,"x":396,"skin":"comp/img_bottom.png"},"child":[{"type":"Animation","props":{"y":-69,"x":19,"var":"jiaoxia2","autoPlay":true}}]}]},{"type":"Sprite","props":{"y":586,"x":39,"var":"menu"},"child":[{"type":"Image","props":{"y":-15,"x":-331,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-62,"x":10,"width":89,"var":"btn_home","skin":"comp/btn_home.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":140,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-54,"x":13,"width":89,"var":"btn_role","skin":"comp/btn_role.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":259,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-49,"x":19,"width":89,"var":"btn_equip","skin":"comp/btn_equip.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":385,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-54,"x":20,"width":89,"var":"btn_biaolu","skin":"comp/btn_biaolu.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":520,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-46,"x":17,"width":89,"var":"btn_achievement","skin":"comp/btn_achievement.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":646,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-49,"x":15,"width":89,"var":"btn_activity","skin":"comp/btn_activity.png","height":93}}]},{"type":"Image","props":{"y":-15,"x":776,"skin":"comp/dz.png"},"child":[{"type":"Button","props":{"y":-47,"x":13,"width":89,"var":"btn_shop","skin":"comp/btn_shop.png","height":93}}]}]}],"animations":[{"nodes":[{"target":12,"keyframes":{"y":[{"value":93,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":0},{"value":84,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":60},{"value":71,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":120},{"value":43,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":180},{"value":-6,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":220},{"value":-48,"tweenMethod":"linearNone","tween":true,"target":12,"key":"y","index":240}],"x":[{"value":339,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":0},{"value":406,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":60},{"value":536,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":120},{"value":635,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":180},{"value":827,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":220},{"value":927,"tweenMethod":"linearNone","tween":true,"target":12,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":12,"key":"interval","index":0}]}},{"target":9,"keyframes":{"y":[{"value":104,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":0},{"value":95,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":60},{"value":82,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":120},{"value":54,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":180},{"value":5,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":220},{"value":-37,"tweenMethod":"linearNone","tween":true,"target":9,"key":"y","index":240}],"x":[{"value":315,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":0},{"value":382,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":60},{"value":512,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":120},{"value":611,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":180},{"value":803,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":220},{"value":903,"tweenMethod":"linearNone","tween":true,"target":9,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":9,"key":"interval","index":0}]}},{"target":11,"keyframes":{"y":[{"value":115,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":0},{"value":106,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":60},{"value":93,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":120},{"value":65,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":180},{"value":16,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":220},{"value":-26,"tweenMethod":"linearNone","tween":true,"target":11,"key":"y","index":240}],"x":[{"value":334,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":0},{"value":401,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":60},{"value":531,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":120},{"value":630,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":180},{"value":822,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":220},{"value":922,"tweenMethod":"linearNone","tween":true,"target":11,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":11,"key":"interval","index":0}]}}],"name":"ani1","id":1,"frameRate":24,"action":2},{"nodes":[{"target":16,"keyframes":{"y":[{"value":218,"tweenMethod":"linearNone","tween":true,"target":16,"key":"y","index":0},{"value":131,"tweenMethod":"linearNone","tween":true,"target":16,"key":"y","index":160},{"value":96,"tweenMethod":"linearNone","tween":true,"target":16,"key":"y","index":240}],"x":[{"value":379,"tweenMethod":"linearNone","tween":true,"target":16,"key":"x","index":0},{"value":599,"tweenMethod":"linearNone","tween":true,"target":16,"key":"x","index":160},{"value":853,"tweenMethod":"linearNone","tween":true,"target":16,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":16,"key":"interval","index":0},{"value":60,"tweenMethod":"linearNone","tween":true,"target":16,"key":"interval","index":240}]}},{"target":17,"keyframes":{"y":[{"value":256,"tweenMethod":"linearNone","tween":true,"target":17,"key":"y","index":0},{"value":169,"tweenMethod":"linearNone","tween":true,"target":17,"key":"y","index":160},{"value":134,"tweenMethod":"linearNone","tween":true,"target":17,"key":"y","index":240}],"x":[{"value":392,"tweenMethod":"linearNone","tween":true,"target":17,"key":"x","index":0},{"value":612,"tweenMethod":"linearNone","tween":true,"target":17,"key":"x","index":160},{"value":866,"tweenMethod":"linearNone","tween":true,"target":17,"key":"x","index":240}],"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":17,"key":"interval","index":0},{"value":60,"tweenMethod":"linearNone","tween":true,"target":17,"key":"interval","index":240}]}},{"target":18,"keyframes":{"y":[{"value":207,"tweenMethod":"linearNone","tween":true,"target":18,"key":"y","index":0},{"value":120,"tweenMethod":"linearNone","tween":true,"target":18,"key":"y","index":160},{"value":85,"tweenMethod":"linearNone","tween":true,"target":18,"key":"y","index":240}],"x":[{"value":427,"tweenMethod":"linearNone","tween":true,"target":18,"key":"x","index":0},{"value":647,"tweenMethod":"linearNone","tween":true,"target":18,"key":"x","index":160},{"value":901,"tweenMethod":"linearNone","tween":true,"target":18,"key":"x","index":240}]}},{"target":20,"keyframes":{"scaleY":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":20,"key":"scaleY","index":0}],"scaleX":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":20,"key":"scaleX","index":0}],"interval":[{"value":100,"tweenMethod":"linearNone","tween":true,"target":20,"key":"interval","index":0}]}},{"target":19,"keyframes":{"scaleY":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":19,"key":"scaleY","index":0}],"scaleX":[{"value":0.6,"tweenMethod":"linearNone","tween":true,"target":19,"key":"scaleX","index":0}]}},{"target":9,"keyframes":{"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":9,"key":"interval","index":0}]}},{"target":11,"keyframes":{"interval":[{"value":60,"tweenMethod":"linearNone","tween":true,"target":11,"key":"interval","index":0}]}}],"name":"ani2","id":2,"frameRate":24,"action":2}]};}
 		]);
 		return mainUI;
 	})(View)
@@ -35612,13 +35658,25 @@ var Laya=window.Laya=(function(window,document){
 			this.mCurrSkinIndex=0;
 			this.mArmatureDiZuo=0;
 			MainView.__super.call(this);
-			var dizuo_ani=new Ske_ani("dizuo_ske" ,this.role_bottom_1,'zhujiemian_jiaoxia_lan');
-			var role1_ani=new Ske_ani("huawuque" ,this.role_bottom_1,'daiji');
+			Laya.loader.load("../h5/res/ui/main_ani/dizuo.json",Laya.Handler.create(this,this.onLoaded),null,Laya.Loader.ATLAS)
 			this.btn_biaolu.on("click",this,this.onBtnClick);
 		}
 
 		__class(MainView,'view.MainView',_super);
 		var __proto=MainView.prototype;
+		__proto.onLoaded=function(){
+			var jiaoxiAni=new JiaoxiaAni();
+			this.jiaoxia1.interval=200;
+			this.jiaoxia1.play(0,true,"blue");
+			var bound=this.jiaoxia1.getBounds();
+			this.jiaoxia1.pos(-bound.width / 2+70,-20);
+			this.jiaoxia2.interval=200;
+			this.jiaoxia2.play(0,true,"blue");
+			this.jiaoxia2.pos(-bound.width / 2+70,-20);
+			var role1_ani=new Ske_ani("huawuque" ,this.jiaoxia1,'daiji');
+			var role2_ani=new Ske_ani("lixunhuan" ,this.jiaoxia2,'daiji');
+		}
+
 		__proto.onBtnClick=function(e){
 			console.log(e);
 		}

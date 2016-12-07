@@ -38,9 +38,9 @@ package view {
 		private function parseComplete(fac:Templet):void {
 			 
 			mArmature   = mFactory.buildArmature(0); 
-		 
+		 	mArmature.pivot(parent_comp.x, parent_comp.y);
 			mArmature.x = parent_comp.width/2;
-			mArmature.y = 20;//parent_comp.height/2;
+			mArmature.y = parent_comp.height/2;//parent_comp.height/2;
 			//mArmature.scale(0.9, 0.9);
 			//
 			mArmature.on(Event.STOPPED, this, completeHandler);

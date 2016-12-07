@@ -21,19 +21,31 @@ package view {
 		private var mArmatureDiZuo:int = 0;
 
 		public function MainView() {
-			//btn是编辑器界面设定的，代码里面能直接使用，并且有代码提示
-
-			//role_bottom_1.	 
-
-			var dizuo_ani:Ske_ani = new Ske_ani( "dizuo_ske" , role_bottom_1, 'zhujiemian_jiaoxia_lan' );
-			 
-
-			var role1_ani:Ske_ani = new Ske_ani( "huawuque" ,role_bottom_1, 'daiji' );
-		
+			 //加载图集资源
+        	Laya.loader.load("../h5/res/ui/main_ani/dizuo.json", Laya.Handler.create(this, this.onLoaded), null, Laya.Loader.ATLAS)
+			
 		 	btn_biaolu.on(Event.CLICK, this, onBtnClick);
 			 
 		}
  
+ 	private function onLoaded() {
+       
+	   
+			var jiaoxiAni:JiaoxiaAni = new JiaoxiaAni(); 
+			jiaoxia1.interval = 200;
+			jiaoxia1.play(0, true, "blue");
+			var bound: Laya.Rectangle = jiaoxia1.getBounds(); 
+            jiaoxia1.pos(-bound.width / 2+70, -20);
+
+			jiaoxia2.interval = 200;
+			jiaoxia2.play(0, true, "blue"); 
+            jiaoxia2.pos(-bound.width / 2+70, -20);
+			  
+
+			var role1_ani:Ske_ani = new Ske_ani( "huawuque" ,jiaoxia1, 'daiji' );
+			var role2_ani:Ske_ani = new Ske_ani( "lixunhuan" ,jiaoxia2, 'daiji' );
+
+    }
 		
 		 
  
